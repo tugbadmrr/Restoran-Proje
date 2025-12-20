@@ -2,22 +2,22 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Proje dosyalarını kopyala
+# Önce sadece proje dosyasını kopyala (Daha hızlı build için)
+COPY ["LezzetDuragi/LezzetDuragi.csproj", "LezzetDuragi/"]
+RUN dotnet restore "LezzetDuragi/LezzetDuragi.csproj"
+
+# Şimdi kalan her şeyi kopyala
 COPY . .
-
-# Kütüphaneleri indir
-RUN dotnet restore
-
-# Projeyi yayınlanabilir hale getir
-RUN dotnet publish -c Release -o out
+WORKDIR "/app/LezzetDuragi"
+RUN dotnet publish -c Release -o /app/out
 
 # 2. Aşama: Çalıştırma (Run)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
 
-# Veritabanı dosyasının oluşması için izin ver
+# Port ayarı
 ENV ASPNETCORE_URLS=http://+:8080
 
-# Uygulamayı başlat
+# Başlat
 ENTRYPOINT ["dotnet", "LezzetDuragi.dll"]
