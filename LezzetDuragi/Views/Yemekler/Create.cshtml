@@ -1,0 +1,47 @@
+@model LezzetDuragi.Models.Yemek
+
+@{
+    ViewData["Title"] = "Yeni Yemek Ekle";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Yeni Yemek Ekle</h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Yemek Adı</label>
+                        <input asp-for="Ad" class="form-control" placeholder="Örn: İskender Kebap" />
+                        <span asp-validation-for="Ad" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fiyat (₺)</label>
+                        <input asp-for="Fiyat" class="form-control" type="number" step="0.01" />
+                        <span asp-validation-for="Fiyat" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Açıklama</label>
+                        <textarea asp-for="Aciklama" class="form-control" rows="3" placeholder="İçindekiler..."></textarea>
+                        <span asp-validation-for="Aciklama" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">Kaydet</button>
+                        <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

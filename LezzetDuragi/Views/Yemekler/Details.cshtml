@@ -1,0 +1,32 @@
+@model LezzetDuragi.Models.Yemek
+
+@{
+    ViewData["Title"] = "Detaylar";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-info text-white">
+            <h2 class="mb-0">🍲 Yemek Detayları</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row fs-5">
+                <dt class="col-sm-3">Yemek Adı:</dt>
+                <dd class="col-sm-9 fw-bold">@Model.Ad</dd>
+
+                <dt class="col-sm-3">Fiyat:</dt>
+                <dd class="col-sm-9 text-success">@Model.Fiyat ₺</dd>
+
+                <dt class="col-sm-3">Açıklama:</dt>
+                <dd class="col-sm-9">@Model.Aciklama</dd>
+
+                <dt class="col-sm-3">Sisteme Giriş:</dt>
+                <dd class="col-sm-9 text-muted">@Model.EklenmeTarihi</dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning px-4">Düzenle</a>
+            <a asp-action="Index" class="btn btn-secondary px-4">Listeye Dön</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+@model IEnumerable<LezzetDuragi.Models.Yemek>
+
+@{
+    ViewData["Title"] = "Menümüz";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-danger">🍽️ Lezzet Menüsü</h1>
+        <p class="lead text-muted">Usta şeflerimizin elinden çıkan eşsiz lezzetler</p>
+        <hr class="w-25 mx-auto text-danger border-3" />
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model) {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-0 hover-effect">
+                    <div class="card-header bg-danger text-white text-center fw-bold">
+                        @item.Ad
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-center">
+                        <h3 class="text-success fw-bold display-6">@item.Fiyat ₺</h3>
+                        <p class="card-text text-muted mt-3 fst-italic">
+                            "@item.Aciklama"
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0 text-center pb-3">
+                        <small class="text-muted">🌟 Müşteri Favorisi</small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .hover-effect:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+    }
+</style>
