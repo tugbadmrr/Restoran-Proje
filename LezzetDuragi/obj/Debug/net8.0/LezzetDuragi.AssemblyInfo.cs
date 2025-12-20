@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LezzetDuragi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6db1ab0ced60595e0c5d32551260699ca5a2038c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LezzetDuragi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LezzetDuragi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
