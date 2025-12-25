@@ -10,6 +10,9 @@ public static class SeedData
         using (var context = new UygulamaDbContext(
             serviceProvider.GetRequiredService<DbContextOptions<UygulamaDbContext>>()))
         {
+            // Veritabanının oluştuğundan emin ol (Tabloları oluşturur)
+            context.Database.EnsureCreated();
+
             // Veritabanı zaten doluysa işlem yapma
             if (context.Yemekler.Any())
             {
